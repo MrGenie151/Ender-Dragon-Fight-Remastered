@@ -1,0 +1,13 @@
+
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "No License"
+
+[[mods]]
+modId = "edfr"
+version = "1.0.0"
+displayName = "Ender Dragon Fight Remastered"
+authors = "MrGenie151"
+description = '''
+A more epic final battle.
+'''
