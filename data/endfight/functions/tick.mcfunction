@@ -1,7 +1,7 @@
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!ticked] dragonAttackTimer 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!ticked] customDragonPhase 1
-execute as @e[type=minecraft:ender_dragon,tag=!ticked] run data merge entity @s {Health:750f,Attributes:[{Name:generic.max_health,Base:750}]}
+execute as @e[type=minecraft:ender_dragon,tag=!ticked] run data merge entity @s {Health:500f,Attributes:[{Name:generic.max_health,Base:500}]}
 #execute as @e[type=minecraft:ender_dragon,tag=!ticked] run say hooray
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run kill @e[tag=crystal]
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run tag @e[tag=crystalInit] remove crystalInit
