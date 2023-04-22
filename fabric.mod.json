@@ -1,1 +1,0 @@
-{"schemaVersion": 1, "authors": ["MrGenie151"], "environment": "*", "depends": {"fabric-api-base": "*", "minecraft": ">=1.19.2"}, "name": "Ender Dragon Fight Remastered", "id": "edfr", "version": "1.0.0", "description": "A more epic final battle.", "license": "No License"}
