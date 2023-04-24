@@ -5,4 +5,5 @@
  # Created by .
 ##
 
-data modify entity @s DragonPhase set value 3
+execute unless entity @s[tag=MAD] run data modify entity @s DragonPhase set value 3
+execute if entity @s[tag=MAD] run function endfight:sch/fireball

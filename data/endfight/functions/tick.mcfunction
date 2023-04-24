@@ -20,7 +20,14 @@ execute as @e[tag=giant] unless entity @s[tag=!init] run function endfight:giant
 
 # End Zombie stuff
 execute as @e[tag=endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
+execute as @e[tag=endZombie] at @s if entity @e[type=minecraft:arrow,distance=..3] run tp ^1 ^ ^
 
 # Stop the music if the Ender Dragon is dead
 execute unless entity @e[tag=music] run stopsound @a record minecraft:end-fight.fight1
 execute unless entity @e[tag=MAD] run stopsound @a record minecraft:end-fight.fight2
+
+#Miniboss Bossbar stuff
+execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s Attributes[3].Base
+execute as @e[tag=miniboss] at @s store result bossbar miniboss value run data get entity @s Health
+execute if entity @e[tag=miniboss] run bossbar set miniboss visible true
+execute unless entity @e[tag=miniboss] run bossbar set miniboss visible false
