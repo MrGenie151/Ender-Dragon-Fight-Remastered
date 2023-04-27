@@ -31,3 +31,7 @@ execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get
 execute as @e[tag=miniboss] at @s store result bossbar miniboss value run data get entity @s Health
 execute if entity @e[tag=miniboss] run bossbar set miniboss visible true
 execute unless entity @e[tag=miniboss] run bossbar set miniboss visible false
+
+# End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
+execute in minecraft:the_end unless entity @e[tag=monumentMarker] run summon minecraft:armor_stand 0 200 0 {Tags:["monumentMarker"],Marker:1b,Invisible:1}
+execute as @e[tag=monumentMarker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
