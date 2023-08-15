@@ -13,11 +13,6 @@ execute as @e[type=minecraft:ender_dragon,tag=ticked] in minecraft:the_end run f
 execute as @e[type=minecraft:end_crystal,tag=!crystalInit] at @s run summon armor_stand ~ ~ ~ {Marker:1b,Invisible:1b,PersistenceRequired:1b,Tags:["crystal"]}
 tag @e[type=minecraft:end_crystal,tag=!crystalInit] add crystalInit
 
-# Giant Stuff
-execute as @e[type=minecraft:giant,tag=!init] at @s run summon giant ~ ~ ~ {Tags:["init","giant"],Passengers:[{id:"minecraft:zombie",NoAI:0b,Tags:["giant_brain","giant"],ActiveEffects:[{Id:14,Amplifier:1b,Duration:999999999999,ShowParticles:0b}]}],ArmorItems:[{},{},{},{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTJhZjYyMzE4OTBiNjQ4MWFkN2Y5NWQxNTBhYzRkNDM3NDA1ODFlZjhiYTA3OTQ0ODc4M2VmYmVlOGVlZjljMCJ9fX0="}}]}
-execute as @e[type=minecraft:giant,tag=!init] at @s run tp @s 0 0 0
-execute as @e[tag=giant] unless entity @s[tag=!init] run function endfight:giant
-
 # End Zombie stuff
 execute as @e[tag=endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 execute as @e[tag=endZombie] at @s if entity @e[type=minecraft:arrow,distance=..3] run tp ^1 ^ ^
