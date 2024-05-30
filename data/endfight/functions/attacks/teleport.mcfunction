@@ -1,1 +1,0 @@
-teleport @s @e[tag=crystal,sort=random,limit=1]
