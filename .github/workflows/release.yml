@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  #push:
+  #  branches:
+  #    - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: ${{ !contains(github.head_ref, 'translations/') }}
+    runs-on: ubuntu-latest
+    env:
+      ORG_GRADLE_PROJECT_buildNumber: ${{ github.run_number }}
+      ORG_GRADLE_PROJECT_runAttempt: ${{ github.run_attempt }}
+      ORG_GRADLE_PROJECT_runningOnCi: ${{ true }}
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read version
+        id: mod-version
+        uses: euberdeveloper/ga-project-version@v3.0.0
+        with:
+          path: '/fabric.mod.json'
+
+      - name: Zip Jar
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  ".gitignore" "README.md" "zip/*"
+
+      - name: Upload Artifact
+        env:
+          project_version: ${{ steps.mod-version.outputs.versi9on }}
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}
+          path: |
+            /*
+            !.zip/*
+            !.git/*
+            !.github/*
+            !.gitignore
+            !README.md
+      
+      - name: Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
+          files: zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar
