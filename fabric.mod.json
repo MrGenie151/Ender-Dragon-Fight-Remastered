@@ -10,9 +10,8 @@
         "MrGenie151"
     ],
     "contact": {
-        "homepage": "https://modrinth.com/datapack/edf-remastered",
-        "sources": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered",
-        "issues": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered/issues"
+        "sources": "https://github.com/CubedNetwork/EnderDragon-Rework",
+        "issues": "https://github.com/CubedNetwork/EnderDragon-Rework/issues"
     },
 
     "license": "GPL-3.0-only",
