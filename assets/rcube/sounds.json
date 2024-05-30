@@ -1,0 +1,16 @@
+{
+	"dragon_rework.fight1": {
+		"replace": false,
+		"catagory" : "record",
+		"sounds" : [
+			"rcube:dragon_rework/fight1"
+		]
+	},
+	"dragon_rework.fight2": {
+		"replace": false,
+		"catagory" : "record",
+		"sounds" : [
+			"rcube:dragon_rework/fight2"
+		]
+	}
+}

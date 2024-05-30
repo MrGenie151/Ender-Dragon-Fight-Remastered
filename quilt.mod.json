@@ -1,0 +1,40 @@
+    {
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "au.rcube",
+        "id": "dragon_rework",
+        "version": "4.3",
+
+        "metadata": {
+            "name": "Ender Dragon Rework",
+            "description": "An up in difficulty for Minecraft's final boss.\nWith more health and more attacks, the fight finally feels like the final confrontation.",
+            "contributors": {
+                "RCube": "Owner",
+                "MrGenie151": "Former Author"
+            },
+
+            "contact": {
+                "homepage": "https://modrinth.com/datapack/edf-remastered",
+                "sources": "https://github.com/MrGenie151/Ender-Dragon-Fight-Remastered",
+                "issues": "https://github.com/MrGenie151/Ender-Dragon-Fight-Remastered/issues"
+            },
+
+            "license": {
+                "name": "GNU General Public License v3.0",
+                "id": "PAL-1.0",
+                "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+            },
+            "icon": "assets/rcube/dragon_rework/icon.png"
+        },
+
+        "intermediate_mappings": "net.fabricmc:intermediary",
+
+        "depends": [
+            {
+                "id": "quilt_resource_loader",
+                "versions": "*",
+                "unless": "fabric-resource-loader-v0"
+            }
+        ]
+    }
+}

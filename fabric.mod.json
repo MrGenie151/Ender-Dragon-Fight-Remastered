@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "dragon_rework",
+    "version": "4.4",
+
+    "name": "Ender Dragon Rework",
+    "description": "An up in difficulty for Minecraft's final boss.\nWith more health and more attacks, the fight finally feels like the final confrontation.",
+    "authors": [
+        "MrGenie151",
+        "RCube_"
+    ],
+    "contact": {
+        "homepage": "https://modrinth.com/datapack/edf-remastered",
+        "sources": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered",
+        "issues": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered/issues"
+    },
+
+    "license": "GPL-3.0-only",
+    "icon": "assets/rcube/dragon_rework/icon.png",
+    "environment": "*",
+
+    "depends": {
+        "fabric-resource-loader-v0": "*"
+    },
+
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.gg/ukAtJUA7RU"
+			}
+		}
+	}
+}
