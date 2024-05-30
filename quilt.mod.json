@@ -15,13 +15,13 @@
 
             "contact": {
                 "homepage": "https://modrinth.com/datapack/edf-remastered",
-                "sources": "https://github.com/MrGenie151/Ender-Dragon-Fight-Remastered",
-                "issues": "https://github.com/MrGenie151/Ender-Dragon-Fight-Remastered/issues"
+                "sources": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered",
+                "issues": "https://github.com/CubedNetwork/Ender-Dragon-Fight-Remastered/issues"
             },
 
             "license": {
                 "name": "GNU General Public License v3.0",
-                "id": "PAL-1.0",
+                "id": "GPL-3.0-only",
                 "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
             },
             "icon": "assets/rcube/dragon_rework/icon.png"
