@@ -59,7 +59,7 @@ jobs:
         with:
           name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
           tag_name: "v${{ steps.mod-version.outputs.version }}"
-          body:
+          body: ${{ steps.git-cliff.outputs.content }}
           # body-path: git-cliff/CHANGELOG.md
           prerelease: true
           files: "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}"
