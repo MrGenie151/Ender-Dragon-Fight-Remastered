@@ -30,12 +30,12 @@ jobs:
 
       - name: Upload Artifact
         env:
-          project_version: ${{ steps.mod-version.outputs.versi9on }}
+          project_version: ${{ steps.mod-version.outputs.version }}
         uses: actions/upload-artifact@v4.3.3
         with:
           name: Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}
           path: |
-            /*
+            *
             !.zip/*
             !.git/*
             !.github/*
