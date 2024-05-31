@@ -51,6 +51,9 @@ jobs:
         env:
           OUTPUT: git-cliff/CHANGELOG.md
 
+      - name: DEBUG- OUTPUT CHANGELOG
+        run: echo ${{ steps.git-cliff.outputs.content }}
+
       - name: Release
         uses: softprops/action-gh-release@v2.0.5
         with:
