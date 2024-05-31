@@ -10,14 +10,10 @@ jobs:
   release:
     permissions:
       contents: write
-
-    if: ${{ !contains(github.head_ref, 'translations/') }}
     runs-on: ubuntu-latest
-    env:
-      ORG_GRADLE_PROJECT_buildNumber: ${{ github.run_number }}
-      ORG_GRADLE_PROJECT_runAttempt: ${{ github.run_attempt }}
-      ORG_GRADLE_PROJECT_runningOnCi: ${{ true }}
-    timeout-minutes: 15
+    outputs:
+      release_body: ${{ steps.git-cliff.outputs.content }}
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
@@ -29,27 +25,50 @@ jobs:
           path: 'fabric.mod.json'
 
       - name: Zip Jar
-        run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  ".gitignore" "README.md" "zip/*"
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md"
 
       - name: Upload Artifact
-        env:
-          project_version: ${{ steps.mod-version.outputs.version }}
         uses: actions/upload-artifact@v4.3.3
         with:
           name: Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}
           path: |
             *
-            !.zip/*
             !.git/*
             !.github/*
+            !git-cliff/*
             !.gitignore
+            !zip/*
             !README.md
-      
-      - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
+
+      - name: Generate changelog
+        uses: orhun/git-cliff-action@v3.1.0
+        id: git-cliff
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          config: git-cliff/cliff.toml
+          args: -vv --latest
+          # args: -vv --latest --strip header
+        env:
+          OUTPUT: git-cliff/CHANGELOG.md
+        
+      - name: DEBUG- Print Changelog
+        run: cat "${{ steps.git-cliff.outputs.changelog }}"
+
+      - name: Release
+        uses: softprops/action-gh-release@v2.0.5
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
+          tag_name: "v${{ steps.mod-version.outputs.version }}"
+          body:
+          # body-path: git-cliff/CHANGELOG.md
           prerelease: true
-          title: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
-          files: zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar
+          files: "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}"
+      
+      # - name: Release
+      #   uses: marvinpinto/action-automatic-releases@latest
+      #   with:
+      #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
+      #     automatic_release_tag: "latest"
+      #     prerelease: true
+      #     title: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
+      #     files: zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar
