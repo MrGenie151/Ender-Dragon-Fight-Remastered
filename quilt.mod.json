@@ -3,7 +3,7 @@
     "quilt_loader": {
         "group": "au.rcube",
         "id": "dragon_rework",
-        "version": "4.5",
+        "version": "1.0.0",
 
         "metadata": {
             "name": "Ender Dragon Rework",
