@@ -55,7 +55,6 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v2.0.5
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
           tag_name: "v${{ steps.mod-version.outputs.version }}"
