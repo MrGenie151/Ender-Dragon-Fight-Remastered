@@ -36,7 +36,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-  # { pattern = '<REPO>', replace = "https://github.com/CubedNetwork/EnderDragon-Rework" },
+  { pattern = 'EnderDragon-Rework', replace = "https://github.com/CubedNetwork/EnderDragon-Rework" }, # replace repository URL
 ]
 
 [git]
