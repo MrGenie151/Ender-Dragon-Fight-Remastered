@@ -23,7 +23,7 @@ jobs:
         id: mod-version
         uses: euberdeveloper/ga-project-version@v3.0.0
         with:
-          path: '/fabric.mod.json'
+          path: 'fabric.mod.json'
 
       - name: Zip Jar
         run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  ".gitignore" "README.md" "zip/*"
