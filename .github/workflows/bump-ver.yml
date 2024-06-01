@@ -1,0 +1,36 @@
+name: Bump Semver
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  bump-ver:
+    name: Bump Semver
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read Project Version
+        id: mod-version
+        uses: christian-draeger/read-properties@1.1.1
+        with:
+          path: "version.properties"
+          properties: "version"
+
+      - name: Bump Version (fabric.mod.json)
+        uses: restackio/update-json-file-action@2.1
+        with:
+          file: fabric.mod.json
+          fields: "{\"version\": \"${{ steps.mod-version.outputs.version }}\"}"
+      
+      - name: Bump Version (quilt.mod.json)
+        uses: restackio/update-json-file-action@2.1
+        with:
+          file: quilt.mod.json
+          fields: "{\"quilt_loader.version\": \"${{ steps.mod-version.outputs.version }}\"}"
