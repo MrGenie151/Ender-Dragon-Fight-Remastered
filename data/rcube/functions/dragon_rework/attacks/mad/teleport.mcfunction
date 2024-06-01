@@ -1,1 +1,1 @@
-teleport @s @e[tag=crystal,sort=random,limit=1]
+teleport @s @e[tag=dragon_rework.crystal,sort=random,limit=1]
