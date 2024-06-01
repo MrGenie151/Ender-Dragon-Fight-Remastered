@@ -24,7 +24,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: Ender Dragon Rework - UNTESTED VERSION
+          name: Ender Dragon Rework - UNTESTED
           path: zip/Ender Dragon Rework.jar 
         #   path: |
         #     *
