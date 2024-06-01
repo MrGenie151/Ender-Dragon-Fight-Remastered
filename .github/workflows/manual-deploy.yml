@@ -21,11 +21,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Install cargo-hack from crates.io
-        uses: baptiste0928/cargo-install@main
-        with:
-          crate: typos-cli
       
       - name: Generate a changelog
         uses: orhun/git-cliff-action@main
