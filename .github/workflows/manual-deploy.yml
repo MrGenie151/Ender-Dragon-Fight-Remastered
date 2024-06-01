@@ -17,7 +17,8 @@ jobs:
     timeout-minutes: 2
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -41,6 +42,9 @@ jobs:
       contents: write
     timeout-minutes: 3
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Read version
         id: mod-version
         uses: euberdeveloper/ga-project-version@v3.0.0
