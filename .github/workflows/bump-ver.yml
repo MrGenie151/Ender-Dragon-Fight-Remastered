@@ -2,8 +2,10 @@ name: Bump Semver
 
 on:
   push:
-    tags:
-      - "v*.*.*"
+    paths:
+      - "version.properties"
+    # tags:
+    #   - "chore(release): prepare for *"
 
 jobs:
   bump-ver:
