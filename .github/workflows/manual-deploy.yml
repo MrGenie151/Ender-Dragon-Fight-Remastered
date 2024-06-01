@@ -1,0 +1,88 @@
+name: Manual Deployment
+run-name: Deploy v${{ inputs.mod_version }} to GitHub by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      mod_version:
+        description: "Current Version"
+        required: true
+
+jobs:
+  generate-changelog:
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    outputs:
+      release_body: ${{ steps.git-cliff.outputs.content }}
+    timeout-minutes: 2
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check typos
+        uses: crate-ci/typos@master
+      
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@main
+        id: git-cliff
+        with:
+          config: git-cliff/cliff.toml
+          args: -vv --latest --strip header
+        env:
+          OUTPUT: git-cliff/CHANGELOG.md
+  
+  publish-release:
+    name: Publish Release
+    needs: generate-changelog
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 3
+    steps:
+      - name: Read version
+        id: mod-version
+        uses: euberdeveloper/ga-project-version@v3.0.0
+        with:
+          path: "fabric.mod.json"
+  
+      - name: Zip Jar
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md"
+  
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}
+          path: |
+            *
+            !.git/*
+            !.github/*
+            !git-cliff/*
+            !.gitignore
+            !zip/*
+            !README.md
+
+      - name: Version
+        id: version
+        run: echo ${{ inputs.mod_version }}
+
+      - name: Publish to GitHub
+        if: ${{ !contains(github.ref, '-') }}
+        uses: "softprops/action-gh-release@v2.0.5"
+        with:
+          name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
+          tag_name: "v${{ steps.mod-version.outputs.version }}"
+          body: ${{ needs.generate-changelog.outputs.release_body }}
+          prerelease: false
+          files: "zip/Ender Dragon Rework.jar"
+
+      - name: Publish to GitHub (pre-release)
+        if: ${{ contains(github.ref, '-') }}
+        uses: "softprops/action-gh-release@v2.0.5"
+        with:
+          name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
+          tag_name: "v${{ steps.mod-version.outputs.version }}"
+          body: ${{ needs.generate-changelog.outputs.release_body }}
+          prerelease: true
+          files: "zip/Ender Dragon Rework.jar"
