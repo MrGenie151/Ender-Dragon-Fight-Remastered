@@ -1,0 +1,12 @@
+# Made by: @rcube.
+# Spawn miniboss
+#
+# Called By: rcube:dragon_rework/tick
+# Ran as: Entity, Ender Dragon (dragonInit = true)           
+
+execute at @e[tag=dragon_rework.monumentMarker,limit=1] unless entity @s[tag=dragon_rework.spawnedMiniboss] unless entity @e[tag=dragon_rework.miniboss] run summon skeleton ~ ~ ~ {Fire:0,HasVisualFire:0b,CustomName:'[{"text":"Warrior of the Years Past","bold":true,"color":"yellow"}]',CustomNameVisible:1b,Health:300,Glowing:1b,PersistenceRequired:1b,Tags:["dragon_rework.miniboss","dragon_rework.removeAfterDeath"],HandItems:[{id:"bow",tag:{display:{Name:'["",{"text":"The Bow of Old","italic":false,"color":"dark_purple"}]'},Enchantments:[{lvl:1,id:"flame"},{lvl:1,id:"infinity"},{lvl:7,id:"power"},{lvl:3,id:"punch"}],Unbreakable:1,Tags:{display:{color:1908001}},HideFlags:1},Count:1}],HandDropChances:[0f],ArmorItems:[{id:"leather_boots",tag:{Enchantments:[{lvl:6,id:"blast_protection"},{lvl:6,id:"fire_protection"},{lvl:255,id:"projectile_protection"},{lvl:6,id:"protection"},{lvl:3,id:"thorns"}],Unbreakable:1,CustomModelData:-1,Tags:{display:{color:1908001}},HideFlags:1},Count:1},{id:"leather_leggings",tag:{Enchantments:[{lvl:6,id:"blast_protection"},{lvl:6,id:"fire_protection"},{lvl:255,id:"projectile_protection"},{lvl:6,id:"protection"},{lvl:3,id:"thorns"}],Unbreakable:1,CustomModelData:-1,Tags:{display:{color:1908001}},HideFlags:1},Count:1},{id:"leather_chestplate",tag:{Enchantments:[{lvl:6,id:"blast_protection"},{lvl:6,id:"fire_protection"},{lvl:255,id:"projectile_protection"},{lvl:6,id:"protection"},{lvl:3,id:"thorns"}],Unbreakable:1,CustomModelData:-1,Tags:{display:{color:1908001}},HideFlags:1},Count:1},{id:"player_head",tag:{SkullOwner:{Id:[I;233407588,309611990,-1146603762,-94551640],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E1OWJiMGE3YTMyOTY1YjNkOTBkOGVhZmE4OTlkMTgzNWY0MjQ1MDllYWRkNGU2YjcwOWFkYTUwYjljZiJ9fX0="}]}}},Count:1}],ArmorDropChances:[0f,0f,0f,0f],Attributes:[{Name:"generic.attack_damage",Base:3f},{Name:"generic.max_health",Base:300f}]}
+execute unless entity @s[tag=dragon_rework.spawnedMiniboss] run tag @s add dragon_rework.spawnedMiniboss
+
+
+
+# update to use refactored tags, etc
