@@ -9,12 +9,12 @@ jobs:
   bump-ver:
     name: Bump Semver
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     timeout-minutes: 2
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Read Project Version
         id: mod-version
@@ -28,9 +28,17 @@ jobs:
         with:
           file: fabric.mod.json
           fields: "{\"version\": \"${{ steps.mod-version.outputs.version }}\"}"
-      
+
       - name: Bump Version (quilt.mod.json)
         uses: restackio/update-json-file-action@2.1
         with:
           file: quilt.mod.json
           fields: "{\"quilt_loader.version\": \"${{ steps.mod-version.outputs.version }}\"}"
+
+      - name: Merge to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "v${{ steps.mod-version.outputs.version }}"
+          git push
