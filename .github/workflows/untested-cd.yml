@@ -26,11 +26,11 @@ jobs:
         with:
           name: Ender Dragon Rework - UNTESTED
           path: zip/Ender Dragon Rework.jar 
-        #   path: |
-        #     *
-        #     !.git/*
-        #     !.github/*
-        #     !git-cliff/*
-        #     !.gitignore
-        #     !zip/*
-        #     !README.md
+          # path: |
+          #   *
+          #   !.git/*
+          #   !.github/*
+          #   !git-cliff/*
+          #   !.gitignore
+          #   !zip/*
+          #   !README.md
