@@ -5,7 +5,7 @@ on:
     paths:
       - "version.properties"
     # tags:
-    #   - "chore(release): prepare for *"
+    #   - "chore(release): Prepare for *"
 
 jobs:
   bump-ver:
