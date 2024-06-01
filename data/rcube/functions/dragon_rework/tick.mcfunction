@@ -5,7 +5,7 @@
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_dragonAttackTimer 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_customDragonPhase 1
-execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:generic.max_health,Base:500}]}
+execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run kill @e[tag=crystal]
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
