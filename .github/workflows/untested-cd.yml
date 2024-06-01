@@ -19,7 +19,7 @@ jobs:
           path: 'fabric.mod.json'
 
       - name: Zip Jar
-        run: mkdir zip | zip -r "zip/Ender Dragon Rework-v${{ steps.mod-version.outputs.version }}.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md"
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.3
