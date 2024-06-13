@@ -15,7 +15,10 @@ tag @e[type=minecraft:end_crystal,tag=!crystalInit] add crystalInit
 
 # End Zombie stuff
 execute as @e[tag=endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
-execute as @e[tag=endZombie] at @s if entity @e[type=minecraft:arrow,distance=..3] run tp ^1 ^ ^
+execute as @e[tag=endZombie] at @s if entity @e[type=minecraft:arrow,distance=..5] run summon marker ~ ~ ~ {Tags:["arrow"]}
+execute as @e[tag=endZombie] at @s run kill @e[type=minecraft:arrow,distance=..5]
+execute as @e[tag=endZombie] at @s if entity @e[tag=arrow,distance=..5] run tp ^1 ^ ^
+kill @e[tag=arrow]
 
 # Stop the music if the Ender Dragon is dead
 execute unless entity @e[tag=music] run stopsound @a record minecraft:end-fight.fight1
