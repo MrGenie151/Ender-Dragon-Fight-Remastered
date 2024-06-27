@@ -5,7 +5,7 @@
  # Created by .
 ##
 
-playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 1 1
-title @a times 0 20 0
-title @a title ""
-title @a subtitle {"text":">> Watch out! <<","color":"red"}
+playsound entity.experience_orb.pickup master @s ~ ~ ~ 1 1 1
+title @s times 5t 1s 10t
+title @s title ""
+title @s subtitle {"text":">> Watch out! <<","color":"red"}
