@@ -18,8 +18,17 @@ execute as @e[tag=endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 execute as @e[tag=endZombie] at @s if entity @e[type=minecraft:arrow,distance=..3] run tp ^1 ^ ^
 
 # Stop the music if the Ender Dragon is dead
-execute unless entity @e[tag=music] run stopsound @a record minecraft:end-fight.fight1
-execute unless entity @e[tag=MAD] run stopsound @a record minecraft:end-fight.fight2
+execute unless entity @e[tag=ticked] run scoreboard players reset * musicTimer
+execute unless entity @e[tag=music] run stopsound @a record endfight:boss.phase1
+execute unless entity @e[tag=MAD] run stopsound @a record endfight:boss.phase2
+execute unless entity @e[tag=ticked] run tag @a[tag=playerMusic] remove playerMusic
+execute unless entity @e[tag=ticked] run tag @a[tag=playerMusic.timerInit] remove playerMusic.timerInit
+execute unless entity @e[tag=ticked] run tag @a[tag=playerMusicMAD] remove playerMusicMAD
+execute unless entity @e[tag=ticked] run tag @a[tag=playerMusicMAD.init] remove playerMusicMAD.init
+execute unless entity @e[tag=ticked] run tag @a[tag=playerMusicMAD.timerInit] remove playerMusicMAD.timerInit
+execute unless entity @e[tag=ticked] run scoreboard players reset * dragonAttackTimer
+execute unless entity @e[tag=ticked] run scoreboard players reset * dragonHealth
+execute unless entity @e[tag=ticked] run scoreboard players reset * customDragonPhase
 
 #Miniboss Bossbar stuff
 execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s Attributes[3].Base

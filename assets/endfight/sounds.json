@@ -1,0 +1,14 @@
+{
+	"boss.phase1": {
+		"catagory" : "record",
+		"sounds" : [
+			"endfight:boss/phase1"
+		]
+	},
+	"boss.phase2": {
+		"catagory" : "record",
+		"sounds" : [
+			"endfight:boss/phase2"
+		]
+	}
+}
