@@ -9,6 +9,7 @@ execute if entity @s[tag=music] if entity @s[tag=MAD] if entity @s[scores={drago
 
 #Health handling
 execute store result score @s dragonHealth run data get entity @s Health
+execute if entity @s[scores={dragonHealth=..499},tag=!music] run function endfight:dragontitle
 
 # Music handling
 ## Timer
