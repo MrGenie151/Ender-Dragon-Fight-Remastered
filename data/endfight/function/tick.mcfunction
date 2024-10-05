@@ -1,11 +1,11 @@
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!ticked] dragonAttackTimer 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!ticked] customDragonPhase 1
-execute as @e[type=minecraft:ender_dragon,tag=!ticked] run data merge entity @s {Health:500f,Attributes:[{Name:generic.max_health,Base:500}]}
+execute as @e[type=minecraft:ender_dragon,tag=!ticked] run data merge entity @s {Health:500f,attributes:[{id:generic.max_health,base:500}]}
 #execute as @e[type=minecraft:ender_dragon,tag=!ticked] run say hooray
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run kill @e[tag=crystal]
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run tag @e[tag=crystalInit] remove crystalInit
-tag @e[type=minecraft:ender_dragon,tag=!ticked] add ticked
+tag @e[type=minecraft:ender_dragon,tag=!ticked,nbt={attributes:[{}]}] add ticked
 execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate endfight:is_aggro run say hi
 execute as @e[type=minecraft:ender_dragon,tag=ticked] in minecraft:the_end run function endfight:dragon
 
@@ -31,7 +31,7 @@ execute unless entity @e[tag=ticked] run scoreboard players reset * dragonHealth
 execute unless entity @e[tag=ticked] run scoreboard players reset * customDragonPhase
 
 #Miniboss Bossbar stuff
-execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s Attributes[3].Base
+execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s attributes[3].base
 execute as @e[tag=miniboss] at @s store result bossbar miniboss value run data get entity @s Health
 execute if entity @e[tag=miniboss] run bossbar set miniboss visible true
 execute unless entity @e[tag=miniboss] run bossbar set miniboss visible false

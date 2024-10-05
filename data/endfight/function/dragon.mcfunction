@@ -4,8 +4,8 @@
 execute if entity @s[tag=music] run scoreboard players remove @s dragonAttackTimer 1
 #say haha
 execute if entity @s[tag=music] if entity @s[scores={dragonAttackTimer=0}] run function endfight:attacks/do
-execute if entity @s[tag=music] unless entity @s[tag=MAD] if entity @s[scores={dragonAttackTimer=0}] run scoreboard players set @s dragonAttackTimer 400
-execute if entity @s[tag=music] if entity @s[tag=MAD] if entity @s[scores={dragonAttackTimer=0}] run scoreboard players set @s dragonAttackTimer 200
+execute if entity @s[tag=music] unless entity @s[tag=MAD] if entity @s[scores={dragonAttackTimer=..0}] run scoreboard players set @s dragonAttackTimer 400
+execute if entity @s[tag=music] if entity @s[tag=MAD] if entity @s[scores={dragonAttackTimer=..0}] run scoreboard players set @s dragonAttackTimer 200
 
 #Health handling
 execute store result score @s dragonHealth run data get entity @s Health
