@@ -1,5 +1,5 @@
 # Check and run
-execute if entity @s[scores={customDragonPhase=1}] in minecraft:the_end at @s run function endfight:attacks/enderman_aggro
+execute if entity @s[scores={customDragonPhase=1}] unless entity @e[tag=ANGRY] in minecraft:the_end at @s run function endfight:attacks/enderman_aggro
 execute if entity @s[scores={customDragonPhase=2}] in minecraft:the_end at @s run function endfight:attacks/shulker
 execute if entity @s[scores={customDragonPhase=3}] in minecraft:the_end at @s run function endfight:attacks/raining_fireballs
 execute if entity @s[scores={customDragonPhase=4}] in minecraft:the_end at @s run function endfight:attacks/perch
