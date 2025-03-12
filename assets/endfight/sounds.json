@@ -2,13 +2,19 @@
 	"boss.phase1": {
 		"catagory" : "record",
 		"sounds" : [
-			"endfight:boss/phase1"
+			{
+				"name": "endfight:boss/phase1",
+				"stream": true
+			}
 		]
 	},
 	"boss.phase2": {
 		"catagory" : "record",
 		"sounds" : [
-			"endfight:boss/phase2"
+			{
+				"name": "endfight:boss/phase2",
+				"stream": true
+			}
 		]
 	}
 }
