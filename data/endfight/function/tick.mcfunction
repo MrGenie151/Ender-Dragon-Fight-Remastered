@@ -6,7 +6,7 @@ execute as @e[type=minecraft:ender_dragon,tag=!ticked] run data merge entity @s 
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run kill @e[tag=crystal]
 execute as @e[type=minecraft:ender_dragon,tag=!ticked] run tag @e[tag=crystalInit] remove crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!ticked,nbt={attributes:[{}]}] add ticked
-execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate endfight:is_aggro run say hi
+#execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate endfight:is_aggro run say hi
 execute as @e[type=minecraft:ender_dragon,tag=ticked] in minecraft:the_end run function endfight:dragon
 
 #Registering end crystal respawn locations
