@@ -1,16 +1,7 @@
 {
-	"supported_formats": [
-		10,
-		12,
-		15,
-		18,
-		26,
-		41,
-		48
-	],
 
 	"pack": {
-		"pack_format": 48,
+		"pack_format": 81,
 		"description": "The Ender Dragon Fight Remastered\nBy MrGenie151",
 		"supported_formats": [
 			32,
