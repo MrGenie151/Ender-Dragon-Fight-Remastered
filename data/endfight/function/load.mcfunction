@@ -11,6 +11,6 @@ bossbar set miniboss color yellow
 #bossbar set miniboss players @a
 execute in minecraft:the_end unless entity @e[tag=monumentMarker] run summon minecraft:armor_stand 0 200 0 {Tags:["monumentMarker"],Marker:1b,Invisible:1b}
 
-tellraw @a {"click_event":{"action":"run_command","command":"/function endfight:open_config"},"color":"green","text":"[Open Config]"}
+tellraw @a {"clickEvent":{"action":"run_command","value":"/function endfight:open_config"},"color":"green","text":"[Open Config]"}
 # Debug display
 #scoreboard objectives setdisplay sidebar dragonAttackTimer

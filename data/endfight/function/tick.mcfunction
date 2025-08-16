@@ -26,7 +26,7 @@ execute unless entity @e[tag=ticked] run scoreboard players reset * dragonHealth
 execute unless entity @e[tag=ticked] run scoreboard players reset * customDragonPhase
 
 #Miniboss Bossbar stuff
-execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s attributes[3].base
+execute as @e[tag=miniboss] at @s store result bossbar miniboss max run data get entity @s attributes[{id:"minecraft:generic.max_health"}].base
 execute as @e[tag=miniboss] at @s store result bossbar miniboss value run data get entity @s Health
 execute if entity @e[tag=miniboss] run bossbar set miniboss visible true
 execute unless entity @e[tag=miniboss] run bossbar set miniboss visible false
