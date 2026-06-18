@@ -4,30 +4,57 @@
 		"description": "The Ender Dragon Fight Remastered\nBy MrGenie151",
 		"supported_formats": [
 			32,
-			81
-		]
+			107
+		],
+		"min_format": [32, 0],
+		"max_format": [107, 99]
 	},
 	"overlays": {
 		"entries": [
 			{
 				"directory": "1.21.2-1.21.3",
-				"formats": 57
+				"formats": 57,
+				"min_format": [57, 0],
+				"max_format": [57, 0]
 			},
 			{
 				"directory": "1.21.4",
-				"formats": 61
+				"formats": 61,
+				"min_format": [61, 0],
+				"max_format": [61, 0]
 			},
 			{
 				"directory": "1.21.5",
-				"formats": 71
+				"formats": 71,
+				"min_format": [71, 0],
+				"max_format": [71, 0]
 			},
 			{
 				"directory": "1.21.6",
-				"formats": 80
+				"formats": 80,
+				"min_format": [80, 0],
+				"max_format": [80, 0]
 			},
 			{
 				"directory": "1.21.7-1.21.8",
-				"formats": 81
+				"formats": 81,
+				"min_format": [81, 0],
+				"max_format": [81, 0]
+			},
+			{
+				"directory": "1.21.9-26.1",
+				"formats": {
+					"min_inclusive": 88,
+					"max_inclusive": 101
+				},
+				"min_format": [88, 0],
+				"max_format": [101, 99]
+			},
+			{
+				"directory": "26.2",
+				"formats": 107,
+				"min_format": [107, 0],
+				"max_format": [107, 99]
 			}
 		]
 	}
