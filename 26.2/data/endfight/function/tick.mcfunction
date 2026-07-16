@@ -1,6 +1,6 @@
 # Dragon Init
 execute as @e[type=ender_dragon,tag=!ticked] run function endfight:dragon_init
-execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate endfight:is_aggro run say hi
+#execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate endfight:is_aggro run say hi
 execute as @e[type=minecraft:ender_dragon,tag=ticked] in minecraft:the_end run function endfight:dragon
 
 #Registering end crystal respawn locations
