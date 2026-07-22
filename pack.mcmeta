@@ -4,10 +4,10 @@
 		"description": "The Ender Dragon Fight Remastered\nBy MrGenie151",
 		"supported_formats": [
 			32,
-			107
+			112
 		],
 		"min_format": [32, 0],
-		"max_format": [107, 99]
+		"max_format": [112, 99]
 	},
 	"overlays": {
 		"entries": [
@@ -51,10 +51,13 @@
 				"max_format": [101, 99]
 			},
 			{
-				"directory": "26.2",
-				"formats": 107,
+				"directory": "26.2-26.3",
+				"formats": {
+					"min_inclusive": 107,
+					"max_inclusive": 112
+				},
 				"min_format": [107, 0],
-				"max_format": [107, 99]
+				"max_format": [112, 99]
 			}
 		]
 	}
