@@ -4,7 +4,7 @@
 		"sounds" : [
 			{
 				"name": "endfight:boss/phase1",
-				"volume": 0.33,
+				"volume": 0.08,
 				"stream": true
 			}
 		]
@@ -14,7 +14,7 @@
 		"sounds" : [
 			{
 				"name": "endfight:boss/phase2",
-				"volume": 0.5,
+				"volume": 0.05,
 				"stream": true
 			}
 		]
